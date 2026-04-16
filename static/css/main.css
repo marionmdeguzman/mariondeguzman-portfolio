@@ -155,6 +155,72 @@ nav {
   overflow: hidden;
 }
 
+.hero-layout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* ── Photo ── */
+.hero-photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-photo-ring {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), transparent);
+  box-shadow: 0 0 40px rgba(79, 142, 247, 0.25), 0 0 80px rgba(79, 142, 247, 0.10);
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--bg);
+  display: block;
+  filter: grayscale(8%) contrast(1.04);
+}
+
+.hero-photo-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.hero-photo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -180,8 +246,8 @@ nav {
 
 .hero-content {
   position: relative;
-  text-align: center;
-  max-width: 780px;
+  text-align: left;
+  flex: 1;
 }
 
 .hero-badge {
@@ -239,15 +305,15 @@ nav {
 .hero-summary {
   font-size: 1rem;
   color: var(--text-muted);
-  max-width: 580px;
-  margin: 0 auto 2.5rem;
+  max-width: 540px;
+  margin: 0 0 2.5rem;
   line-height: 1.75;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -292,9 +358,9 @@ nav {
 
 .hero-contacts {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
 }
 
@@ -883,6 +949,17 @@ footer a:hover { text-decoration: underline; }
   .nav-links.open { display: flex; }
   .about-grid, .edu-grid { grid-template-columns: 1fr; }
   .timeline { padding-left: 1.5rem; }
+
+  .hero-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  .hero-content { text-align: center; }
+  .hero-photo-ring { width: 180px; height: 180px; }
+  .hero-summary { margin: 0 auto 2rem; }
+  .hero-actions { justify-content: center; }
+  .hero-contacts { justify-content: center; }
 }
 
 /* ─── SCROLL REVEAL ──────────────────────────── */
