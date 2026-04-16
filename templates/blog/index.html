@@ -10,23 +10,20 @@
   </div>
 
   <div class="page-section" style="padding-top:0">
-    {% if posts %}
-      <div class="blog-grid">
-        {% for post in posts %}
-        <a href="{{ url_for('blog_post', slug=post.slug) }}" class="blog-card reveal{% if loop.index0 % 3 > 0 %} reveal-delay-{{ loop.index0 % 3 }}{% endif %}">
-          <div class="blog-card-date">{{ post.date }}</div>
-          <div class="blog-card-title">{{ post.title }}</div>
-          <div class="blog-card-summary">{{ post.summary }}</div>
-          <div class="blog-card-read">Read article →</div>
+    <div class="substack-callout reveal">
+      <div class="substack-callout-inner">
+        <div class="substack-icon">✍️</div>
+        <div class="substack-text">
+          <h3>Sound Mind Engineer</h3>
+          <p>My writing lives on Substack — covering observability, cloud engineering, Kubernetes, and the human side of working in tech.</p>
+        </div>
+        <a href="https://soundmindengineer.substack.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          Read on Substack
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
         </a>
-        {% endfor %}
       </div>
-    {% else %}
-      <div class="empty-state reveal">
-        <div class="empty-state-icon">✍️</div>
-        <h3>Coming Soon</h3>
-        <p>Articles and technical write-ups are on the way.<br>Check back soon.</p>
-      </div>
-    {% endif %}
+    </div>
   </div>
 {% endblock %}

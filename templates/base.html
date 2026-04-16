@@ -26,7 +26,8 @@
       <li><a href="{{ url_for('index') }}#experience" >Experience</a></li>
       <li><a href="{{ url_for('index') }}#skills"     >Skills</a></li>
       <li><a href="{{ url_for('index') }}#education"  >Education</a></li>
-      <li><a href="{{ url_for('blog_index') }}"  {% if active_page == 'blog' %}class="active"{% endif %}>Blog</a></li>
+      <li><a href="{{ url_for('index') }}#projects">Projects</a></li>
+      <li><a href="https://soundmindengineer.substack.com/" target="_blank" rel="noopener">Blog</a></li>
       <li><a href="{{ url_for('services') }}"    {% if active_page == 'services' %}class="active"{% endif %}>Services</a></li>
     </ul>
     <div class="nav-controls">
@@ -56,6 +57,10 @@
       <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
       &nbsp;·&nbsp;
       <a href="tel:{{ profile.phone }}">{{ profile.phone }}</a>
+      {% if profile.github %}
+      &nbsp;·&nbsp;
+      <a href="{{ profile.github }}" target="_blank" rel="noopener">GitHub</a>
+      {% endif %}
     </p>
   </footer>
 

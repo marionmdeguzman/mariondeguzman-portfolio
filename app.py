@@ -16,7 +16,7 @@ PROFILE = {
     "email": "deguzmancaptain@gmail.com",
     "phone": "+63 9363392851",
     "location": "Manila, Philippines",
-    "github": None,  # Add your GitHub URL here when ready
+    "github": "https://github.com/marionmdeguzman",
 }
 
 ABOUT_CARDS = [
@@ -74,11 +74,11 @@ HIGHLIGHTS = [
     },
     {
         "icon": "🎤",
-        "title": "Cisco & Linux Presenter — Adamson University",
+        "title": "Career Speaker — ECE Students, ICT & Telco Industry",
         "body": (
-            "Invited as a technical speaker at Adamson University to present on Cisco "
-            "networking fundamentals and Linux system administration, bridging industry "
-            "practice with academic learning."
+            "Invited as a career speaker at Adamson University, sharing industry insights "
+            "and professional guidance with Electronics Engineering students on pathways "
+            "into the ICT and Telecommunications industry."
         ),
         "tag": "Speaker",
         "tag_class": "tag-blue",
@@ -250,6 +250,50 @@ CERTIFICATIONS = [
     {"name": "Certified Kubernetes Administrator (CKA)", "year": "2026", "icon": "☸️", "bg": "rgba(59,130,246,0.1)"},
 ]
 
+# ─── PERSONAL PROJECTS ────────────────────────────────────────────────────────
+
+PROJECTS = [
+    {
+        "icon": "🛠️",
+        "title": "Terraform AI Debugger & Deployment Lab",
+        "description": (
+            "An internal project initiative built for Coralogix. An AI-powered web application "
+            "that assists engineers in diagnosing Terraform plan/apply errors, suggesting fixes, "
+            "and managing deployment workflows — reducing toil and accelerating infrastructure delivery."
+        ),
+        "tags": ["Terraform", "Python", "Flask", "AI / LLM", "DevOps", "IaC"],
+        "github": "https://github.com/marionmdeguzman/TF_Debugger_Deployment_Tool",
+        "private": True,
+        "context": "Internal Initiative · Coralogix",
+    },
+    {
+        "icon": "📡",
+        "title": "Simple Microservice APM Instrumentation",
+        "description": (
+            "An internal lab environment for APM simulation at Coralogix. Demonstrates "
+            "end-to-end OpenTelemetry instrumentation of a Python microservice stack, fully "
+            "integrated with Coralogix APM for distributed tracing, metrics, and log correlation."
+        ),
+        "tags": ["OpenTelemetry", "APM", "Microservices", "Python", "Coralogix", "Tracing"],
+        "github": "https://github.com/marionmdeguzman/simple_microservice_apm_instrumentation",
+        "private": True,
+        "context": "Internal Lab · Coralogix",
+    },
+    {
+        "icon": "🏥",
+        "title": "Django EHR MVP",
+        "description": (
+            "A personal project — a Django-based Electronic Health Record system designed "
+            "for small clinics and private physicians. Covers patient management, consultation "
+            "records, prescriptions, and appointment scheduling as a clean, deployable MVP."
+        ),
+        "tags": ["Django", "Python", "PostgreSQL", "Healthcare", "EHR", "Web App"],
+        "github": "https://github.com/marionmdeguzman/IMS_2024",
+        "private": True,
+        "context": "Personal Project",
+    },
+]
+
 # ─── BLOG POSTS ───────────────────────────────────────────────────────────────
 # Add entries here to publish posts. Future: swap this list for a DB query.
 # Each post needs: slug (url-safe), title, date (YYYY-MM-DD), summary, body (HTML or markdown).
@@ -288,6 +332,7 @@ def index():
         skills=SKILLS,
         education=EDUCATION,
         certifications=CERTIFICATIONS,
+        projects=PROJECTS,
     )
 
 
@@ -325,4 +370,4 @@ def services():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
