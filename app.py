@@ -280,6 +280,20 @@ PROJECTS = [
         "context": "Internal Lab · Coralogix",
     },
     {
+        "icon": "📋",
+        "title": "IMS — Integrated Management System",
+        "description": (
+            "A full-stack user profile and booking management system built for gym owners "
+            "and any business that requires appointment scheduling, member/client profile management, "
+            "and admin operations. Covers user registration, booking workflows, profile management, "
+            "and an admin dashboard for business owners."
+        ),
+        "tags": ["Python", "Django", "PostgreSQL", "Booking System", "Admin Dashboard", "Web App"],
+        "github": "https://github.com/marionmdeguzman/IMS-2026",
+        "private": False,
+        "context": "Personal Project",
+    },
+    {
         "icon": "🏥",
         "title": "Django EHR MVP",
         "description": (
