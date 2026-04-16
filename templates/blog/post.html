@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — {{ profile.name }}{% endblock %}
+
+{% block content %}
+  <div class="page-hero">
+    <a href="{{ url_for('blog_index') }}" class="btn btn-outline" style="margin-bottom:2rem;display:inline-flex;">
+      ← Back to Blog
+    </a>
+    <div class="blog-post-header">
+      <div class="blog-post-date">{{ post.date }}</div>
+      <h1 class="blog-post-title">{{ post.title }}</h1>
+    </div>
+  </div>
+
+  <div class="page-section" style="padding-top:0">
+    <div class="blog-post-body">
+      {{ post.body | safe }}
+    </div>
+  </div>
+{% endblock %}

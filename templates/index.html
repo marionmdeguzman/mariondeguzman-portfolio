@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge">{{ profile.badge }}</div>
+      <h1 class="hero-name">{{ profile.name }}</h1>
+      <p class="hero-title">
+        {% for tag in profile.title_tags %}
+          <span>{{ tag }}</span>{% if not loop.last %} · {% endif %}
+        {% endfor %}
+      </p>
+      <p class="hero-summary">{{ profile.summary }}</p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+          View Experience
+        </a>
+        <a href="mailto:{{ profile.email }}" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Get in Touch
+        </a>
+      </div>
+      <div class="hero-contacts">
+        <div class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.48 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.73-1.73a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:{{ profile.phone }}">{{ profile.phone }}</a>
+        </div>
+        <div class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+        </div>
+        <div class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          {{ profile.location }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ─── ABOUT ME ─── -->
+  <section id="about">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Who I Am</h2>
+    <p class="section-desc">A results-driven engineer bridging deep technical expertise with strong leadership and customer success.</p>
+    <div class="about-grid">
+      {% for card in about_cards %}
+      <div class="about-card reveal{% if loop.index0 > 0 %} reveal-delay-{{ loop.index0 }}{% endif %}">
+        <div class="about-card-icon">
+          {% if card.icon_key == 'user' %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          {% elif card.icon_key == 'activity' %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          {% elif card.icon_key == 'users' %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          {% elif card.icon_key == 'star' %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          {% endif %}
+        </div>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ─── CAREER HIGHLIGHTS ─── -->
+  <section id="highlights">
+    <div class="section-label">Career Highlights</div>
+    <h2 class="section-title">Key Milestones</h2>
+    <p class="section-desc">Defining achievements and recognitions across my engineering career.</p>
+    <div class="highlights-grid">
+      {% for h in highlights %}
+      <div class="highlight-card reveal{% if loop.index0 % 4 > 0 %} reveal-delay-{{ loop.index0 % 4 }}{% endif %}">
+        <div class="highlight-icon">{{ h.icon }}</div>
+        <h3>{{ h.title }}</h3>
+        <p>{{ h.body }}</p>
+        <span class="highlight-tag {{ h.tag_class }}">{{ h.tag }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Work History</h2>
+    <p class="section-desc">8+ years of progressively senior roles in telco, cloud, and observability engineering.</p>
+    <div class="timeline">
+      {% for job in experience %}
+      <div class="timeline-item reveal">
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div class="timeline-role">{{ job.role }}</div>
+            <div class="timeline-period">{{ job.period }}</div>
+          </div>
+          <div class="timeline-company">{{ job.company }}</div>
+          <ul class="timeline-bullets">
+            {% for bullet in job.bullets %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+          <div class="tags-wrap">
+            {% for tag in job.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Technical Expertise</h2>
+    <p class="section-desc">Core technologies and domains I work with day to day.</p>
+    <div class="skills-grid">
+      {% for skill in skills %}
+      <div class="skill-pill reveal{% if loop.index0 % 4 > 0 %} reveal-delay-{{ loop.index0 % 4 }}{% endif %}">
+        <span class="skill-dot" style="background:{{ skill.color }}"></span>
+        {{ skill.name }}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ─── EDUCATION & CERTIFICATIONS ─── -->
+  <section id="education">
+    <div class="section-label">Education & Certifications</div>
+    <h2 class="section-title">Credentials</h2>
+    <p class="section-desc">Academic background and professional certifications underpinning my engineering career.</p>
+    <div class="edu-grid">
+
+      <div>
+        <p class="sub-label">Education</p>
+        {% for edu in education %}
+        <div class="edu-card reveal">
+          <div style="font-size:1.75rem;margin-bottom:0.75rem;">🎓</div>
+          <h3>{{ edu.degree }}</h3>
+          <div class="school">{{ edu.school }}</div>
+          <div class="year">{{ edu.years }}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div>
+        <p class="sub-label">Certifications</p>
+        <div class="cert-list">
+          {% for cert in certifications %}
+          <div class="cert-item reveal{% if loop.index0 > 0 %} reveal-delay-{{ loop.index0 }}{% endif %}">
+            <div class="cert-badge" style="background:{{ cert.bg }}">{{ cert.icon }}</div>
+            <div>
+              <div class="cert-name">{{ cert.name }}</div>
+              <div class="cert-year">{{ cert.year }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

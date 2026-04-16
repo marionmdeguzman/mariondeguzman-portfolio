@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Services — {{ profile.name }}{% endblock %}
+
+{% block content %}
+  <div class="page-hero">
+    <div class="section-label">Services</div>
+    <h1 class="section-title">What I Offer</h1>
+    <p class="section-desc">
+      Professional consulting and engineering services in cloud infrastructure, observability,
+      and SaaS operations. Reach out to discuss how I can help your team.
+    </p>
+  </div>
+
+  <div class="page-section" style="padding-top:0">
+    {% if services %}
+      <div class="services-grid">
+        {% for svc in services %}
+        <div class="service-card reveal{% if loop.index0 % 3 > 0 %} reveal-delay-{{ loop.index0 % 3 }}{% endif %}">
+          <div class="service-icon">{{ svc.icon }}</div>
+          <h3>{{ svc.title }}</h3>
+          <p>{{ svc.description }}</p>
+          {% if svc.tags %}
+          <div class="tags-wrap" style="margin-top:1rem;">
+            {% for tag in svc.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state reveal">
+        <div class="empty-state-icon">🛠️</div>
+        <h3>Coming Soon</h3>
+        <p>Service offerings are being finalised.<br>In the meantime, feel free to reach out directly.</p>
+      </div>
+    {% endif %}
+
+    <!-- ─── CONTACT CTA ─── -->
+    <div style="margin-top:4rem;padding:2.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);text-align:center;" class="reveal">
+      <div style="font-size:1.5rem;margin-bottom:1rem;">📬</div>
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;">Have a project in mind?</h3>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">
+        I'm open to consulting engagements, freelance projects, and technical collaborations.
+      </p>
+      <a href="mailto:{{ profile.email }}" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Get in Touch
+      </a>
+    </div>
+  </div>
+{% endblock %}
